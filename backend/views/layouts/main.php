@@ -69,10 +69,13 @@ AppAsset::register($this);
 <!--                                <a class="btn btn-danger btn-block" href="--><?//= \yii\helpers\Url::toRoute(['/site/index1']) ?><!--"></a>-->
                             </li>
                             <li class="list-group-item">
-                                <?php echo Html::a('Quản lý giáo viên', ['/teacher/index'], ['class' => 'btn btn-link']); ?>
+                                <?php echo Html::a('Quản lý học sinh Đk', ['/dangki/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
                                 <?php echo Html::a('Quản lý môn học', ['/subject/index'], ['class' => 'btn btn-link']); ?>
+                            </li>
+                            <li class="list-group-item">
+                                <?php echo Html::a('Quản lý giáo viên', ['/teacher/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
                                 <?php echo Html::a('Quản lý yêu cầu góp ý ', ['/contact/index'], ['class' => 'btn btn-link']); ?>

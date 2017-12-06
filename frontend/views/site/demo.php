@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="demo">
     <h1><?= Html::encode($this->title) ?></h1>
     <?php
-    $dai = 'nhu cc chan vc ';
+    var_dump($giaovien[0])
 
     ?>
     <p>
