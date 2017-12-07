@@ -68,6 +68,9 @@ AppAsset::register($this);
                                 <?php echo Html::a('Quản lý người dùng', ['/user/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
+                                <?php echo Html::a('Quản lý ảnh', ['/image/index'], ['class' => 'btn btn-link']); ?>
+                            </li>
+                            <li class="list-group-item">
                                 <?php echo Html::a('Quản lý học sinh Đk', ['/dangki/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
