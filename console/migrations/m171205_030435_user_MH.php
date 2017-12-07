@@ -13,17 +13,18 @@ class m171205_030435_user_MH extends Migration
         }
 
         $this->createTable('{{%user_MH}}', [
-            'id_user' => $this->primaryKey(),
+            'id' => $this->primaryKey(),
+            'id_user' => $this->integer()->notNull()->unique(),
             'id_MH' => $this->integer()->notNull()->unique(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
         $this->addForeignKey(
             'fk-user-UM',
-            'user',
-            'id',
             'user_MH',
             'id_user',
+            'user',
+            'id',
             'CASCADE'
         );
     }

@@ -66,7 +66,6 @@ AppAsset::register($this);
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <?php echo Html::a('Quản lý người dùng', ['/user/index'], ['class' => 'btn btn-link']); ?>
-<!--                                <a class="btn btn-danger btn-block" href="--><?//= \yii\helpers\Url::toRoute(['/site/index1']) ?><!--"></a>-->
                             </li>
                             <li class="list-group-item">
                                 <?php echo Html::a('Quản lý học sinh Đk', ['/dangki/index'], ['class' => 'btn btn-link']); ?>
@@ -80,7 +79,6 @@ AppAsset::register($this);
                             <li class="list-group-item">
                                 <?php echo Html::a('Quản lý yêu cầu góp ý ', ['/contact/index'], ['class' => 'btn btn-link']); ?>
                             </li>
-
                         </ul>
                     </div>
                 </div>
