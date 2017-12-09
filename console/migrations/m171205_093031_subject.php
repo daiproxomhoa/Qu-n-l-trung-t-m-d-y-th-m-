@@ -24,13 +24,6 @@ class m171205_093031_subject extends Migration
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
 
-        $this->addForeignKey(
-            'fk-UM-subject',
-            'subject',
-            'id',
-            'user_MH',
-            'id_MH',
-            'CASCADE'
-        );
+
     }
 }

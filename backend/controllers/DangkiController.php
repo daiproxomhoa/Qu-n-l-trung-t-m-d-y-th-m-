@@ -46,13 +46,14 @@ class DangkiController extends Controller
 
     /**
      * Displays a single dangki model.
-     * @param integer $id
+     * @param integer $id_user
+     * @param integer $id_MH
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($id_user, $id_MH)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id_user, $id_MH),
         ]);
     }
 
@@ -66,7 +67,7 @@ class DangkiController extends Controller
         $model = new dangki();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_user]);
+            return $this->redirect(['view', 'id_user' => $model->id_user, 'id_MH' => $model->id_MH]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -77,15 +78,16 @@ class DangkiController extends Controller
     /**
      * Updates an existing dangki model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $id_user
+     * @param integer $id_MH
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id_user, $id_MH)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($id_user, $id_MH);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_user]);
+            return $this->redirect(['view', 'id_user' => $model->id_user, 'id_MH' => $model->id_MH]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -96,12 +98,13 @@ class DangkiController extends Controller
     /**
      * Deletes an existing dangki model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer $id_user
+     * @param integer $id_MH
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id_user, $id_MH)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id_user, $id_MH)->delete();
 
         return $this->redirect(['index']);
     }
@@ -109,13 +112,14 @@ class DangkiController extends Controller
     /**
      * Finds the dangki model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer $id_user
+     * @param integer $id_MH
      * @return dangki the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($id_user, $id_MH)
     {
-        if (($model = dangki::findOne($id)) !== null) {
+        if (($model = dangki::findOne(['id_user' => $id_user, 'id_MH' => $id_MH])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -20,14 +20,7 @@ class m171205_094014_teacher extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
-        $this->addForeignKey(
-            'fk-subject_teacher',
-            'subject',
-            'teacher_id',
-            'teacher',
-            'id',
-            'CASCADE'
-        );
+
     }
 }
 
