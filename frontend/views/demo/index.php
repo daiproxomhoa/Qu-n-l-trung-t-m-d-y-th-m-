@@ -8,21 +8,19 @@
 
 use yii\helpers\Html;
 use common\models\Teacher;
+use common\models\Image;
 
 $giaovien = Teacher::find()->where(['id' => '1'])->asArray()->all();
-$this->title = 'Demo';
-$this->params['breadcrumbs'][] = $this->title;
+$image = Image::find()->where(['id_image' => 2])->asArray()->all();
+$this->params['breadcrumbs'][] = 'Demo';
+
 ?>
 <div class="demo">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php
-    if (is_null($giaovien)){
-      echo 'nhu cc';
-    }
-    else
-        var_dump($giaovien[0]);
-    ?>
-    <img src="<?php echo Yii::getAlias('@imageURL') . '/1.jpg' ?>" width="600" height="400">
+    <div class="test_demo">
+        <img src="<?php echo Yii::getAlias('@imageURL').'/'. $image[0]['image_name'] ?>" w   class="img-responsive">
+    </div>
+
     <p>
         Please contact us if you think this is a server error. Thank you.
     </p>

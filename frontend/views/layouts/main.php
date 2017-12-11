@@ -39,7 +39,7 @@ AppAsset::register($this);
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Demo', 'url' => ['/site/demo']],
+        ['label' => 'Demo', 'url' => ['/demo']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -61,13 +61,33 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 aside-left ">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <?php echo Html::a('Chương trình đào tạo', ['/demo/index'], ['class' => 'btn btn-link']); ?>
+                            </li>
+                            <li class="list-group-item">
+                                <?php echo Html::a('Lịch học các lớp', ['/lichhoc/index'], ['class' => 'btn btn-link']); ?>
+                            </li>
+                            <li class="list-group-item">
+                                <?php echo Html::a('Bài tập các lớp', ['/dangki/index'], ['class' => 'btn btn-link']); ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 admin-right ">
+                <?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],]) ?>
+                <?= Alert::widget() ?>
+                <?= $content ?>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 
 <footer class="footer">

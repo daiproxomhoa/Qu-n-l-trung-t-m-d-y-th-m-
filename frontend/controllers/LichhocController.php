@@ -6,7 +6,7 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
-class DemoController extends Controller
+class LichhocController extends Controller
 {
 
     /**

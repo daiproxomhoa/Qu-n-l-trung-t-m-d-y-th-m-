@@ -165,9 +165,9 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-    function actionDemo(){
-        return $this->render('demo');
-    }
+//    function actionDemo(){
+//        return $this->render('demo');
+//    }
     /**
      * Requests password reset.
      *
