@@ -120,3 +120,6 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.btn-link{
+    font-size: 100%;
+}

@@ -7,44 +7,42 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
-use common\models\Teacher;
-use common\models\Image;
+use common\models\Documment;
 
-$giaovien = Teacher::find()->where(['id' => '1'])->asArray()->all();
-$image = Image::find()->where(['id_image' => 2])->asArray()->all();
-$this->params['breadcrumbs'][] = 'Demo';
 
+$List = Documment::find()->asArray()->all();
+$this->title = 'Lịch khai giảng';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="demo">
+
+<div id="container">
     <h1><?= Html::encode($this->title) ?></h1>
-    <div class="test_demo">
-        <img src="<?php echo Yii::getAlias('@imageURL').'/'. $image[0]['image_name'] ?>" w   class="img-responsive">
-    </div>
+    <div id="main">
+        <div class="show-content">
+            <div id='new-list'>
+                <?php
+                for ($i = 0; $i < count($List); $i++) {
+                    ?>
+                    <div id="bar-item">
+                        <div class="item row">
+                            <div class="col-tm-12 col-xs-5 col-sm-4">
+                                <img src="<?php echo Yii::getAlias('@imageDC') . '/' . $List[$i]['image_name'] ?>"
+                                     width="250" class="img-responsive" id='image_list'>
+                            </div>
+                            <div class="col-tm-12 col-xs-7 col-sm-8">
+                                <a href="../site/contact"><?php echo $List[$i]['description'] ?></a>
+                                <p><?php echo $List[$i]['content'] ?></p>
+                            </div>
+                            <button id="xemthem"><a href="../site/contact">Xem thêm</a></button>
+                        </div>
+                    </div>
+                <?php } ?>
 
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
-    <div class="row">
-        <div class="panel panel-success">
-            <div class="panel-body">
-                <div class="fb-comments" data-href="https://www.facebook.com/LearnEnglish-497754600561704/"
-                     data-numposts="5"></div>
-                <div class="fb-like" data-href="https://www.facebook.com/LearnEnglish-497754600561704/"
-                     data-layout="standard" data-action="like" data-size="small" data-show-faces="true"
-                     data-share="true"></div>
-                <div class="fb-save" data-uri="https://www.facebook.com/LearnEnglish-497754600561704/"
-                     data-size="small"></div>
-                <div class="fb-follow" data-href="https://www.facebook.com/LearnEnglish-497754600561704/"
-                     data-layout="standard" data-size="small" data-show-faces="true"></div>
-                <div class="fb-send" data-href="https://www.facebook.com/LearnEnglish-497754600561704/"></div>
-                <div class="fb-share-button" data-href="https://www.facebook.com/LearnEnglish-497754600561704/"
-                     data-layout="button_count" data-size="small" data-mobile-iframe="true"><a
-                            class="fb-xfbml-parse-ignore" target="_blank"
-                            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FLearnEnglish-497754600561704%2F&amp;src=sdkpreparse">Chia
-                        sẻ</a></div>
+            </div>
+            <div class="slider">
             </div>
         </div>
     </div>
+</div>
 
 </div>
