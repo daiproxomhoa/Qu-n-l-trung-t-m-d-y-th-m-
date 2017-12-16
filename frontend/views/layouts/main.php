@@ -71,7 +71,7 @@ AppAsset::register($this);
                                 <?php echo Html::a('Chương trình đào tạo', ['/demo/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
-                                <?php echo Html::a('Lịch khai giảng', ['/demo/index'], ['class' => 'btn btn-link']); ?>
+                                <?php echo Html::a('Lịch khai giảng', ['/lichhoc/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
                                 <?php echo Html::a('Bài tập các lớp', ['/dangki/index'], ['class' => 'btn btn-link']); ?>

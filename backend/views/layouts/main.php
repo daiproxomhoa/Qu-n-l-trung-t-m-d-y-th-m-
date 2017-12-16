@@ -83,6 +83,9 @@ AppAsset::register($this);
                                 <?php echo Html::a('Quản lý tài liệu', ['/document/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
+                                <?php echo Html::a('Nội dung chi tiết', ['/detail/index'], ['class' => 'btn btn-link']); ?>
+                            </li>
+                            <li class="list-group-item">
                                 <?php echo Html::a('Quản lý yêu cầu góp ý ', ['/contact/index'], ['class' => 'btn btn-link']); ?>
                             </li>
 

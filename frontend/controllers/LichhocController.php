@@ -2,10 +2,14 @@
 
 namespace frontend\controllers;
 
+use common\models\Detail;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-
+use yii\web\NotFoundHttpException;
+/**
+ * LichhocController implements the CRUD actions for Lichhoc model.
+ */
 class LichhocController extends Controller
 {
 
@@ -62,7 +66,20 @@ class LichhocController extends Controller
         return $this->render('index');
     }
 
-
+    function  actionDetail($id)
+    {
+        return $this->render('detail', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+    protected function findModel($id)
+    {
+        if (($model = Detail::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }
 
 ?>
