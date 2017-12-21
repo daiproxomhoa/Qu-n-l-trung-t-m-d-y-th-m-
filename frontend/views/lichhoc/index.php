@@ -1,17 +1,15 @@
 <?php
 
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
 /* @var $this yii\web\View */
 /* @var $name string */
 /* @var $message string */
-
 /* @var $exception Exception */
-
-use yii\helpers\Html;
-use common\models\Documment;
-
-
-$List = Documment::find()->asArray()->all();
-$this->title = 'Lịch khai giảng';
+/* @var $detail common\models\Detail */
+/* @var $form yii\widgets\ActiveForm */
+$this->title = 'Lịch khai giảng 1';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -29,12 +27,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <img src="<?php echo Yii::getAlias('@imageDC') . '/' . $List[$i]['image_name'] ?>"
                                      width="250" class="img-responsive" id='image_list'>
                             </div>
-                            <div class="col-tm-12 col-xs-7 col-sm-8">
-                                <a href="../site/contact"><?php echo $List[$i]['description'] ?></a>
-                                <p><?php echo $List[$i]['content'] ?></p>
+                            <?php $form = ActiveForm::begin(); ?>
+                            <div class="form-group">
+                                <?= Html::a(Yii::t('app', $List[$i]['description']), ['detail', 'id' => $List[$i]['id']]) ?>
                             </div>
-                            <button id="xemthem"><a href="../lichhoc/detail">Xem thêm</a></button>
-
+                            <p><?php echo $List[$i]['content'] ?></p>
+                            <div class="form-group">
+                                <?= Html::a(Yii::t('app', 'Xem them'), ['detail', 'id' => $List[$i]['id']], ['class' => 'btn btn-default']) ?>
+                            </div>
+                            <?php ActiveForm::end(); ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -46,4 +47,3 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
-</div>

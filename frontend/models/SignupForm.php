@@ -59,7 +59,8 @@ class SignupForm extends Model
         $user->phone = $this->phone;
         $user->born = $this->born;
         $user->address = $this->address;
-
+        $user->updated_at=time();
+        $user->created_at=time();
 
         return $user->save() ? $user : null;
     }

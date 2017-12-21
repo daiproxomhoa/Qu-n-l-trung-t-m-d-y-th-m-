@@ -1,21 +1,22 @@
 <?php
 
 namespace frontend\controllers;
-
+use common\models\Image;
 use common\models\Detail;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
-/**
- * LichhocController implements the CRUD actions for Lichhoc model.
- */
+use common\models\Documment;
+
 class LichhocController extends Controller
 {
 
     /**
      * @inheritdoc
      */
+
+
     public function behaviors()
     {
         return [
@@ -61,17 +62,22 @@ class LichhocController extends Controller
     }
 
     function actionIndex()
+
     {
-//        $this->layout='demo';
-        return $this->render('index');
+        $List = Documment::find()->asArray()->all();
+        return $this->render('index', ['List' => $List]);
+
     }
 
-    function  actionDetail($id)
+    function actionDetail($id)
     {
-        return $this->render('detail', [
-            'model' => $this->findModel($id),
-        ]);
+        $List = Detail::find()->where(['id_dc'=>$id])->asArray()->one();
+        $List1 = Documment::find()->where(['id'=>$id])->asArray()->one();
+        $images = Image::find()->asArray()->all();
+        return $this->render('detail', ['index' => $List1,'detail'=>$List,'images'=>$images]
+        );
     }
+
     protected function findModel($id)
     {
         if (($model = Detail::findOne($id)) !== null) {

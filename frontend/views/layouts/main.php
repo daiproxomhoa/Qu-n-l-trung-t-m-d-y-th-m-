@@ -39,12 +39,13 @@ AppAsset::register($this);
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Demo', 'url' => ['/demo']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+
+        $menuItems[] = ['label' => 'Đăng kí', 'url' => ['/dangki/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -53,6 +54,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -68,7 +70,7 @@ AppAsset::register($this);
                     <div class="panel-body">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <?php echo Html::a('Chương trình đào tạo', ['/demo/index'], ['class' => 'btn btn-link']); ?>
+                                <?php echo Html::a('Chương trình đào tạo', ['/lichhoc/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
                                 <?php echo Html::a('Lịch khai giảng', ['/lichhoc/index'], ['class' => 'btn btn-link']); ?>

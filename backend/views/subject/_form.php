@@ -21,7 +21,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'time_start')->textInput() ?>
 
     <?= $form->field($model, 'time_study')->textInput() ?>
-
+    <?= $form->field($model, 'money')->textInput() ?>
+    <?= $form->field($model, 'dangki')->textInput() ?>
+    <?= $form->field($model, 'amount')->textInput() ?>
     <?= $form->field($model, 'created_at')->textInput() ?>
 
     <?= $form->field($model, 'updated_at')->textInput() ?>

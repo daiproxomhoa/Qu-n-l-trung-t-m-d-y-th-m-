@@ -17,9 +17,11 @@ class m171205_093031_subject extends Migration
             'subject_name' => $this->string()->notNull()->unique(),
             'teacher_id' => $this->integer()->notNull(),
             'schedule' => $this->string()->notNull(),
-            'time_start' => $this->integer()->notNull(),
+            'time_start' => $this->date()->notNull(),
             'time_study' => $this->integer()->notNull(),
             'money' => $this->integer(),
+            'dangki' => $this->integer(),
+            'amount' => $this->integer(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);

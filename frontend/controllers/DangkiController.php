@@ -1,17 +1,30 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: Vu Tien Dai
+ * Date: 21/12/2017
+ * Time: 10:56 SA
+ */
+
 namespace frontend\controllers;
 
+use common\models\Image;
+use common\models\Subject;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
+use common\models\Teacher;
 
-class DemoController extends Controller
+class DangkiController extends Controller
 {
 
     /**
      * @inheritdoc
      */
+
+
     public function behaviors()
     {
         return [
@@ -57,12 +70,22 @@ class DemoController extends Controller
     }
 
     function actionIndex()
+
     {
-//        $this->layout='demo';
-        return $this->render('index');
+        $List = Subject::find()->asArray()->all();
+        return $this->render('index', ['List' => $List]);
+
     }
 
 
+    protected function findModel($id)
+    {
+        if (($model = Detail::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }
 
 ?>
