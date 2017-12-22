@@ -11,9 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="contact-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
     <?= $form->field($model, 'id')->textInput() ?>
-
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
