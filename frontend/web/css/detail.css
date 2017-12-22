@@ -1,0 +1,19 @@
+
+.header_detail {
+    background-color: #ffa423;
+    text-align: center;
+    height: 250px;
+    padding-left: 0px;
+}
+
+.item {
+    margin-left: 0px;
+    margin-right:0px ;
+}
+#image_list{
+    margin-top: 3.85px;
+}
+#header_text
+{
+    margin-top: 20px;
+}
