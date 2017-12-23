@@ -10,30 +10,21 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+   
+            <?php $form = ActiveForm::begin(); ?>
 
-    <p>Please fill out the following fields to login:</p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <?php echo $form->field($model, 'username')->textInput(['id' => 'usename', 'placeholder'=>'Username'])->label(false) ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?php echo $form->field($model, 'password')->passwordInput(['id'=>'password', 'placeholder'=>'Password'])->label(false) ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                <?php echo $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
+                <div>
+                         <input type="submit" value="Log in" />
+                         <a href="#">Lost your password?</a>
+                         <a href="#">Register</a>
+                    </div>
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-</div>
+
