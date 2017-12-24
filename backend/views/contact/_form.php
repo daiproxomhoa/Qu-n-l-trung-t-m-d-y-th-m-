@@ -16,7 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'body')->textInput(['maxlength' => true]) ?>
 

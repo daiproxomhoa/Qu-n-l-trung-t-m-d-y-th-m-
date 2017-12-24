@@ -10,7 +10,6 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property string $name
  * @property string $email
- * @property string $subject
  * @property string $body
  * @property integer $created_at
  * @property integer $updated_at

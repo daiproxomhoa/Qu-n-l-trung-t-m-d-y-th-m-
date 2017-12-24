@@ -16,7 +16,6 @@ class m171128_134742_contact extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->unique(),
             'email' => $this->string()->notNull(),
-            'subject' => $this->string()->notNull(),
             'body' => $this->string()->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),

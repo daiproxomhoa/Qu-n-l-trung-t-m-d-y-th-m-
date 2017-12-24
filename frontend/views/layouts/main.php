@@ -36,16 +36,16 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Trang chủ', 'url' => ['/site/index']],
+        ['label' => 'Chương trình học', 'url' => ['/lichhoc/index']],
+        ['label' => 'Liên lạc', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Đăng kí', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Đăng nhập', 'url' => ['/site/login']];
     } else {
 
-        $menuItems[] = ['label' => 'Đăng kí', 'url' => ['/dangki/index']];
+        $menuItems[] = ['label' => 'Đăng kí học', 'url' => ['/dangki/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -65,7 +65,7 @@ AppAsset::register($this);
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 aside-left ">
+            <div class="col-md-2 aside-left " style="width: auto">
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <ul class="list-group">

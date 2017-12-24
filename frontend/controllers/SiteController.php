@@ -73,7 +73,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->layout='index';
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post())) {
+            var_dump($model->body);
+            if ($model->contact()) {
+                if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+                    Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                } else {
+                    Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                }
+
+                return $this->refresh();
+            }
+        } else {
+            return $this->render('index', ['model' => $model,]);
+        }
+
     }
 
     /**
@@ -133,18 +149,6 @@ class SiteController extends Controller
             return $this->render('contact', ['model' => $model,]);
         }
     }
-
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public
-    function actionAbout()
-    {
-        return $this->render('about');
-    }
-
     /**
      * Signs user up.
      *

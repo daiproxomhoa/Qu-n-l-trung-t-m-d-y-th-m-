@@ -14,7 +14,6 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
-    public $subject;
     public $body;
     public $verifyCode;
     public $created_at;
@@ -25,8 +24,8 @@ class ContactForm extends Model
      */
     public function rules(){
     $rules = [
-        [['name','email','subject','body'],'required'],
-        [['name','subject'],'string','max'=>255],
+        [['name','email','body'],'required'],
+        [['name'],'string','max'=>255],
         ['email','string','max'=>100 ],
         ['body','safe'],
         ['email','email'],
@@ -44,7 +43,6 @@ class ContactForm extends Model
         $contact = new Contact();
         $contact->name = $this->name;
         $contact->email = $this->email;
-        $contact->subject = $this->subject;
         $contact->body = $this->body;
         $contact->created_at = time();
         $contact->updated_at = time();
@@ -72,7 +70,6 @@ class ContactForm extends Model
         return Yii::$app->mailer->compose()
             ->setTo($email)
             ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
             ->setTextBody($this->body)
             ->send();
     }

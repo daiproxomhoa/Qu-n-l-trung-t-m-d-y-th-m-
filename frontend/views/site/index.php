@@ -1,58 +1,516 @@
 <?php
 
-/* @var $this yii\web\View */
-use yii\helpers\Html;
-$this->title = 'My Yii Application';
+use yii\bootstrap\ActiveForm;
+use yii\captcha\Captcha;
+
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-                <button type="submit" >Demo</button>
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'demo']) ?>
+<section class="cd-hero">
+    <ul class="cd-hero-slider fa-play-circle">
+        <!--
+            <ul class="cd-hero-slider autoplay"> for slider auto play
+            <ul class="cd-hero-slider"> for disabled auto play
+        -->
+        <li class="selected first-slide">
+            <div class="cd-full-width">
+                <div class="tm-slide-content-div slide-caption">
+                    <span>Sản phẩm được viết bởi</span>
+                    <h2>Đại & Phương</h2>
+                    <p>Trung tâm giáo dục Thiên Thành </p>
+                    <div class="primary-button">
+                        <a class="scroll-link" data-id="about">Tìm Hiểu</a>
+                    </div>
                 </div>
+            </div> <!-- .cd-full-width -->
+        </li>
 
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+        <li class="second-slide">
+            <div class="cd-full-width">
+                <div class="tm-slide-content-div slide-caption">
+                    <span>We Are Perfect Staffs</span>
+                    <h2>Our Team Members</h2>
+                    <p>Donec dolor ipsum, laoreet nec metus non, tempus elementum massa. Donec non elit rhoncus,
+                        vestibulum enim sed, rutrum arcu.</p>
+                    <div class="primary-button">
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div> <!-- .cd-full-width -->
+        </li>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+        <li class="third-slide">
+            <div class="cd-full-width">
+                <div class="tm-slide-content-div slide-caption">
+                    <span>Design is a hobby</span>
+                    <h2>Responsive Layout</h2>
+                    <p>Integer ut dolor eget magna congue gravida ut at arcu. Vivamus maximus neque quis luctus tempus.
+                        Vestibulum consequat.</p>
+                    <div class="primary-button">
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+            </div> <!-- .cd-full-width -->
+        </li>
+    </ul> <!-- .cd-hero-slider -->
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+    <div class="cd-slider-nav">
+        <nav>
+            <span class="cd-marker item-1"></span>
+
+            <ul>
+                <li class="selected"><a href="#0"></a></li>
+                <li><a href="#0"></a></li>
+                <li><a href="#0"></a></li>
+            </ul>
+        </nav>
+    </div> <!-- .cd-slider-nav -->
+</section> <!-- .cd-hero -->
+
+<div id="about" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h4>Thiên Thành </h4>
+                    <div class="line-dec"></div>
+                </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item first-service">
+                    <div class="icon"></div>
+                    <h4>Kiểm tra định kì </h4>
+                    <p>Các lớp luôn có những bài kiểm tra định kì sát với trương trình giảng dạy trên trường phù hợp
+                        trình đọ của học sinh theo từng lớp.<br></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item second-service">
+                    <div class="icon"></div>
+                    <h4>Khởi nguồn sáng tạo </h4>
+                    <p>Luôn tạo điều kiện cho học sinh sinh viên có những trải nghiệm thực tế .Với môn tiếng Anh 50%
+                        buổi học là với giáo viên nước ngoài.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item third-service">
+                    <div class="icon"></div>
+                    <h4>Phần thưởng</h4>
+                    <p>Luôn có phần thưởng cho những học sinh xuất xắc trong học tập và thi cử </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="service-item fourth-service">
+                    <div class="icon"></div>
+                    <h4>Trải nghiệm</h4>
+                    <p>Cuối mỗi học kì các lớp Tiếng Anh sẽ được làm hướng dẫn viên du lịch cho khách nước ngoài để có
+                        thể đánh giá đúng năng lực của bản thận.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<div id="what-we-do">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="left-text">
+                    <h4>Trung tâm Giáo dục Thiên Thành .</h4>
+                    <p>Chúng tôi luôn luôn coi việc giáo dục con người lên hàng đầu.</p>
+                    <p>Chúng tôi luôn luôn muốn tạo ra một môi trường học thân thiên</p>
+                    <p>Chúng tôi luôn luôn nâng cao kĩ năng của bản thân để có thể phục vụ tốt nhất</p>
+                    <p>Để làm được điều đó chúng tôi cần các bạn ...</p>
+                    <ul>
+                        <li>
+                            <div class="white-button">
+                                <a href="../lichhoc/index" data-id="portfolio">Tìm hiểu</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="right-image">
+                    <img src="../img/bc.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="portfolio" class="page-section">
+    <div class="content-wrapper">
+        <div class="inner-container container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Our Portfolio</h4>
+                        <div class="line-dec"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-holder-3">
+                <div class="filter-categories">
+                    <ul class="project-filter">
+                        <li class="filter" data-filter="all"><span>All</span></li>
+                        <li class="filter" data-filter="nature"><span>Nature</span></li>
+                        <li class="filter" data-filter="workspace"><span>Workspace</span></li>
+                        <li class="filter" data-filter="city"><span>City</span></li>
+                        <li class="filter" data-filter="technology"><span>Technology</span></li>
+                    </ul>
+                </div>
+                <div class="projects-holder">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 project-item mix workspace">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_01.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_01.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix workspace">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_02.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_02.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix technology">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_03.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_03.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix city">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_04.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_04.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix nature">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_05.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_05.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix technology">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_06.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_06.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix workspace">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_07.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_07.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 project-item mix city">
+                            <div class="thumb">
+                                <div class="image">
+                                    <img src="../img/portfolio_08.jpg">
+                                </div>
+                                <div class="hover-effect">
+                                    <a href="../img/portfolio_big_08.jpg" data-lightbox="image-1"><i
+                                                class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="blog" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h4>Our Blog Posts</h4>
+                    <div class="line-dec"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="blog-item b1">
+                    <div class="thumb">
+                        <img src="../img/blog_01.jpg" alt="">
+                        <div class="text-content">
+                            <h4>Delecioius Food Served</h4>
+                            <span>Posted: <em>George</em>  /  Date: <em>11 Aug 2017</em>  /  Category: <em>Design</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-item second-blog b2">
+                    <div class="thumb">
+                        <img src="../img/blog_02.jpg" alt="">
+                        <div class="text-content">
+                            <h4>Creative &amp; Clean Workspace</h4>
+                            <span>Posted: <em>Kerley</em>  /  Date: <em>24 Jul 2017</em>  /  Category: <em>Artwork</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-item b3">
+                    <div class="thumb">
+                        <img src="../img/blog_03.jpg" alt="">
+                        <div class="text-content">
+                            <h4>Crashed Plane Captured</h4>
+                            <span>Posted: <em>Johnny</em>  /  Date: <em>16 Jul 2017</em>  /  Category: <em>Branding</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pop">
+                    <span>✖</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis neque lacinia, porta nulla
+                        in, pellentesque ante. Vivamus in luctus mauris, non pharetra nibh. Morbi porttitor nisl sit
+                        amet velit pellentesque consequat. Etiam blandit libero turpis, id vehicula leo posuere a. In
+                        vel massa sollicitudin, tincidunt massa et, tincidunt ex.<br><br>Duis volutpat condimentum
+                        mollis. Sed eleifend libero ut viverra mattis. Suspendisse consectetur diam dolor, ut efficitur
+                        sem finibus vel. Vivamus tristique lacus sed dapibus varius. Fusce pharetra, quam quis congue
+                        pretium, ante dui imperdiet ipsum, eget lobortis leo leo sed diam.</p>
+                </div>
+                <div class="pop2">
+                    <span>✖</span>
+                    <p>Praesent purus leo, aliquet et efficitur id, pulvinar scelerisque enim. Maecenas a arcu sagittis,
+                        ornare ante ut, suscipit lectus. Donec dolor ipsum, laoreet nec metus non, tempus elementum
+                        massa. Donec non elit rhoncus, vestibulum enim sed, rutrum arcu. Vestibulum et purus ac diam
+                        condimentum volutpat sed ac est. Phasellus interdum tortor sem. Quisque sit amet condimentum
+                        sem. Phasellus luctus, felis sit amet pulvinar luctus, lectus dui mattis tellus, et placerat
+                        nunc ante at lacus.<br><br>Vivamus vestibulum, nisi sed placerat accumsan, felis felis venenatis
+                        tortor, vel condimentum arcu neque vel mauris. Donec a magna gravida, egestas libero non,
+                        molestie massa. Integer ut dolor eget magna congue gravida ut at arcu. Vivamus maximus neque
+                        quis luctus tempus. Vestibulum consequat a justo id feugiat. </p>
+                </div>
+                <div class="pop3">
+                    <span>✖</span>
+                    <p>Nullam rhoncus, orci et iaculis sodales, quam lectus suscipit augue, ut auctor massa dolor id
+                        metus. Nulla porta ut diam sodales dignissim. Ut sit amet augue vel justo laoreet dignissim.
+                        Maecenas vitae sollicitudin eros. In commodo placerat cursus. Quisque malesuada, nisl ac lacinia
+                        commodo, justo eros maximus ex, quis cursus odio erat at neque. Sed tincidunt eu dolor eget
+                        posuere.<br><br>Curabitur sit amet elit sit amet ligula eleifend aliquam quis eget quam. Mauris
+                        id mi nec justo venenatis tincidunt at ac massa. Sed et volutpat nunc. Quisque at urna quam.
+                        Duis sit amet neque eget quam iaculis iaculis. Quisque maximus porta elementum. Nam ac mattis
+                        erat, quis accumsan odio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+<!--<div id="fun-facts">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                <div class="fact-item">-->
+<!--                    <div class="counter" data-count="926">0</div>-->
+<!--                    <span>Regular Visitors</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                <div class="fact-item">-->
+<!--                    <div class="counter" data-count="214">0</div>-->
+<!--                    <span>Finished Projects</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                <div class="fact-item">-->
+<!--                    <div class="counter" data-count="118">0</div>-->
+<!--                    <span>Happy Clients</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-3 col-sm-6 col-xs-12">-->
+<!--                <div class="fact-item">-->
+<!--                    <div class="counter" data-count="16">0</div>-->
+<!--                    <span>Total Awards</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div id="contact" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h4>Contact Us</h4>
+                    <div class="line-dec"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="map">
+                    <img src="../img/map.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+
+                    <div class="col-md-6">
+                        <fieldset>
+                            <?= $form->field($model, 'name')->textInput() ?>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <?= $form->field($model, 'email') ?>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                            <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+
+                        </fieldset>
+                    </div>
+                    <div class="col-md-"></div>
+                    <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                    ]) ?>
+                    <div class="col-md-12">
+                        <button type="submit" id="form-submit" class="btn">Send Message</button>
+                    </div>
+                    <?php ActiveForm::end(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="copyright-text">
+                    <p>Copyright &copy; 2017 Công nghệ phần mềm
+
+                        - Design: <a href="https://www.facebook.com/vu.t.dai.56" target="_parent">Đại</a></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="social-icons">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/vu.t.dai.56"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-rss"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+<script src="js/vendor/bootstrap.min.js"></script>
+
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // navigation click actions
+        $('.scroll-link').on('click', function (event) {
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function (event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+
+    // scroll function
+    function scrollToID(id, speed) {
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop: targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+
+    if (typeof console === "undefined") {
+        console = {
+            log: function () {
+            }
+        };
+    }
+</script>
+</body>
+</html>

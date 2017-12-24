@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 /* @var $exception Exception */
 /* @var $detail common\models\Detail */
 /* @var $form yii\widgets\ActiveForm */
-$this->title = 'Lịch khai giảng 1';
+$this->title = 'Lịch khai giảng';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

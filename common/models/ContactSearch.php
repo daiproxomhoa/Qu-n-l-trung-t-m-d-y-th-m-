@@ -19,7 +19,7 @@ class ContactSearch extends Contact
     {
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'email', 'subject', 'body'], 'safe'],
+            [['name', 'email', 'body'], 'safe'],
         ];
     }
 
@@ -66,7 +66,6 @@ class ContactSearch extends Contact
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'subject', $this->subject])
             ->andFilterWhere(['like', 'body', $this->body]);
 
         return $dataProvider;

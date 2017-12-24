@@ -21,8 +21,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email') ?>
 
-    <?= $form->field($model, 'subject') ?>
-
     <?= $form->field($model, 'body') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
