@@ -9,5 +9,8 @@ return [
         'created_at' => '1392559490',
         'updated_at' => '1392559490',
         'email' => 'sfriesen@jenkins.info',
+        'born'=>'1996-01-02',
+        'phone'=>'123',
+        'address'=>'123'
     ],
 ];

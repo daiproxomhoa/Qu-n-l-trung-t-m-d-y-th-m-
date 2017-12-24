@@ -9,6 +9,9 @@ return [
         'created_at' => '1391885313',
         'updated_at' => '1391885313',
         'email' => 'brady.renner@rutherford.com',
+        'born'=>'1996-01-02',
+        'phone'=>'123',
+        'address'=>'123'
     ],
     [
         'username' => 'troy.becker',
@@ -19,5 +22,8 @@ return [
         'updated_at' => '1391885313',
         'email' => 'nicolas.dianna@hotmail.com',
         'status' => '0',
+        'born'=>'1996-01-02',
+        'phone'=>'123',
+        'address'=>'123'
     ],
 ];
