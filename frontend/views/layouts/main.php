@@ -30,7 +30,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => Yii::$app->homeUrl.'/site/index',
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -73,10 +73,10 @@ AppAsset::register($this);
                                 <?php echo Html::a('Chương trình đào tạo', ['/lichhoc/index'], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
-                                <?php echo Html::a('Lịch khai giảng', ['/lichhoc/index'], ['class' => 'btn btn-link']); ?>
+                                <?php echo Html::a('Phương pháp học', [''], ['class' => 'btn btn-link']); ?>
                             </li>
                             <li class="list-group-item">
-                                <?php echo Html::a('Bài tập các lớp', ['/dangki/index'], ['class' => 'btn btn-link']); ?>
+                                <?php echo Html::a('Bài tập các lớp', [''], ['class' => 'btn btn-link']); ?>
                             </li>
                         </ul>
                     </div>
