@@ -17,7 +17,7 @@ use yii\captcha\Captcha;
                     <h2>Đại & Phương</h2>
                     <p>Trung tâm giáo dục Thiên Thành </p>
                     <div class="primary-button">
-                        <a class="scroll-link" data-id="about">Tìm Hiểu</a>
+                        <a class="scroll-link" data-id="about">Giới thiệu</a>
                     </div>
                 </div>
             </div> <!-- .cd-full-width -->

@@ -26,4 +26,17 @@ return [
         'phone'=>'123',
         'address'=>'123'
     ],
+    [
+        'username' => 'trang',
+        'auth_key' => 'EdKfXrx88weFMV0vIxuTMWKgfK2tS3Lp',
+        'password_hash' => '$2y$13$g5nv41Px7VBqhS3hVsVN2.MKfgT3jFdkXEsMC4rQJLfaMa7VaJqL2',
+        'password_reset_token' => '4BSNyiZNAuxjs5Mty990c47sVrgllIi_' . time(),
+        'created_at' => '1391885312',
+        'updated_at' => '1391885312',
+        'email' => 'AAA@hotmail.com',
+        'status' => '0',
+        'born'=>'1996-01-02',
+        'phone'=>'123',
+        'address'=>'123'
+    ],
 ];

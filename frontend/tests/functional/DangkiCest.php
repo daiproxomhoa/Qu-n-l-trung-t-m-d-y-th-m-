@@ -11,4 +11,5 @@ class DangkiCest
         $I->amOnPage(['dangki/index']);
         $I->see('Đăng kí học trực tuyến');
     }
+
 }

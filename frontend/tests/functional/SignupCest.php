@@ -29,10 +29,13 @@ class SignupCest
     {
         $I->submitForm(
             $this->formId, [
-            'SignupForm[username]'  => 'tester',
-            'SignupForm[email]'     => 'ttttt',
-            'SignupForm[password]'  => 'tester_password',
-        ]
+                'SignupForm[username]' => 'tester',
+                'SignupForm[email]' => 'ttttt',
+                'SignupForm[password]' => 'tester_password',
+                'SignupForm[phone]' => '123',
+                'SignupForm[born]' => '1996-01-01',
+                'SignupForm[address]' => 'hanoi',
+            ]
         );
         $I->dontSee('Username cannot be blank.', '.help-block');
         $I->dontSee('Password cannot be blank.', '.help-block');
@@ -42,16 +45,19 @@ class SignupCest
     public function signupSuccessfully(FunctionalTester $I)
     {
         $I->submitForm($this->formId, [
-            'SignupForm[username]' => 'tester',
-            'SignupForm[email]' => 'tester.email@example.com',
-            'SignupForm[password]' => 'tester_password',
+            'SignupForm[username]' => 'daiproxomhoa',
+            'SignupForm[email]' => 'dai@gmail.com',
+            'SignupForm[password]' => 'dsadsa',
+            'SignupForm[phone]' => '123',
+            'SignupForm[born]' => '1996-01-01',
+            'SignupForm[address]' => 'hanoi',
         ]);
 
         $I->seeRecord('common\models\User', [
-            'username' => 'tester',
-            'email' => 'tester.email@example.com',
+            'username' => 'daiproxomhoa',
+            'email' => 'dai@gmail.com',
         ]);
 
-        $I->see('Logout (tester)', 'form button[type=submit]');
+        $I->see('Logout (daiproxomhoa)', 'form button[type=submit]');
     }
 }

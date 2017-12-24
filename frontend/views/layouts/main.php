@@ -38,7 +38,7 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Trang chủ', 'url' => ['/site/index']],
         ['label' => 'Chương trình học', 'url' => ['/lichhoc/index']],
-        ['label' => 'Liên lạc', 'url' => ['/site/contact']],
+        ['label' => 'Hỗ trợ', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Đăng kí', 'url' => ['/site/signup']];

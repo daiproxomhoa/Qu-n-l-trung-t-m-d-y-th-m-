@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\tests\unit\models;
 
 use common\fixtures\UserFixture;
@@ -25,18 +26,19 @@ class SignupFormTest extends \Codeception\Test\Unit
     public function testCorrectSignup()
     {
         $model = new SignupForm([
-            'username' => 'some_username',
+            'username' => 'daica',
             'email' => 'some_email@example.com',
-            'password' => 'some_password',
+            'password' => 'dsadsa',
+            'born' => '1996-01-01',
+            'phone' => '123',
+            'address' => '123',
         ]);
 
         $user = $model->signup();
-
         expect($user)->isInstanceOf('common\models\User');
-
-        expect($user->username)->equals('some_username');
+        expect($user->username)->equals('daica');
         expect($user->email)->equals('some_email@example.com');
-        expect($user->validatePassword('some_password'))->true();
+        expect($user->validatePassword('dsadsa'))->true();
     }
 
     public function testNotCorrectSignup()
@@ -45,6 +47,9 @@ class SignupFormTest extends \Codeception\Test\Unit
             'username' => 'troy.becker',
             'email' => 'nicolas.dianna@hotmail.com',
             'password' => 'some_password',
+            'born' => '1996-01-01',
+            'phone' => '123',
+            'address' => '123',
         ]);
 
         expect_not($model->signup());

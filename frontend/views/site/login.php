@@ -11,10 +11,8 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="container-fluid ">
-    <?php $form = ActiveForm::begin(); ?>
-
-
+<div class="container-fluid  ">
+    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
     <?php echo $form->field($model, 'username')->textInput(['id' => 'usename', 'placeholder' => 'Username'])->label(false) ?>
 
     <?php echo $form->field($model, 'password')->passwordInput(['id' => 'password', 'placeholder' => 'Password'])->label(false) ?>
@@ -22,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo $form->field($model, 'rememberMe')->checkbox() ?>
 
     <div>
-        <input type="submit" value="Log in"/>
+        <input type="submit" value="Log in" name='login-button'/>
         <a href="#">Lost your password?</a>
         <a href="../site/signup">Signup</a>
     </div>

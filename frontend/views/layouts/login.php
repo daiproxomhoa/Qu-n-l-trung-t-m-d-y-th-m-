@@ -20,7 +20,7 @@ LoginAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body style="background-color:#0d3349;position: relative ">
+    <body style="background-color:#0d3349;position: relative ">Ư
     <?php $this->beginBody() ?>
 
     <div class="container">

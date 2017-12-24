@@ -21,7 +21,7 @@ class ContactCest
     {
         $I->submitForm('#contact-form', []);
         $I->see('Contact', 'h1');
-        $I->seeValidationError('Name canno      t be blank');
+        $I->seeValidationError('Name cannot be blank');
         $I->seeValidationError('Email cannot be blank');
         $I->seeValidationError('Body cannot be blank');
         $I->seeValidationError('The verification code is incorrect');
@@ -37,7 +37,6 @@ class ContactCest
         ]);
         $I->seeValidationError('Email is not a valid email address.');
         $I->dontSeeValidationError('Name cannot be blank');
-        $I->dontSeeValidationError('Subject cannot be blank');
         $I->dontSeeValidationError('Body cannot be blank');
         $I->dontSeeValidationError('The verification code is incorrect');
     }

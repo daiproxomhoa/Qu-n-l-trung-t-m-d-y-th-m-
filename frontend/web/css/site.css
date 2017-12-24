@@ -143,7 +143,6 @@ a.desc:after {
 .red-border {
     border-color: #ef4f26 !important;
 }
-z
 .box .box-body.red-background {
     background-color: #ef4f26  !important;
     background-size: auto;
@@ -151,4 +150,8 @@ z
 
 .box .box-body.red-background .title {
     color: #ffffff !important;
+}
+.box .box-header.red-background {
+    background-color: #f76620 !important;
+    background-size: auto;
 }
