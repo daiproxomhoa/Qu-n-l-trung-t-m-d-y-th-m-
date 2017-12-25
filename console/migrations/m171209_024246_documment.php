@@ -16,6 +16,7 @@ class m171209_024246_documment extends Migration
             'id' => $this->primaryKey(),
             'document_name' => $this->string(),
             'description' => $this->string(),
+            'content'=>$this->string(),
             'link_download' => $this->string(),
             'id_user' => $this->integer(),
             'image_name' => $this->string(),
